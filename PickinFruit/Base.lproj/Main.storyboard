@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,19 +28,27 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="resultLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tif-Hl-M4t">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="gNe-Kz-RVc" firstAttribute="centerY" secondItem="tne-Wc-2Ra" secondAttribute="centerY" id="4xD-l5-UAw"/>
                                     <constraint firstItem="gNe-Kz-RVc" firstAttribute="centerX" secondItem="tne-Wc-2Ra" secondAttribute="centerX" id="9dV-Ag-jwu"/>
+                                    <constraint firstItem="tif-Hl-M4t" firstAttribute="centerX" secondItem="gNe-Kz-RVc" secondAttribute="centerX" id="Fjc-o1-THj"/>
+                                    <constraint firstItem="tif-Hl-M4t" firstAttribute="width" secondItem="gNe-Kz-RVc" secondAttribute="width" id="hNc-Cb-03l"/>
+                                    <constraint firstItem="tif-Hl-M4t" firstAttribute="centerY" secondItem="tne-Wc-2Ra" secondAttribute="bottom" id="nqf-5u-Mre"/>
                                 </constraints>
                             </view>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqg-RL-roi"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9t-CE-N2h">
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="46"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqg-RL-roi">
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="23M-Xs-DxW"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="SOY-cZ-5fy"/>
+                                </connections>
+                            </pickerView>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fP-tt-v6H" userLabel="Btm Background View">
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -60,7 +69,6 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2fP-tt-v6H" secondAttribute="trailing" id="68z-tU-Pmq"/>
                             <constraint firstItem="2fP-tt-v6H" firstAttribute="top" secondItem="Hqg-RL-roi" secondAttribute="bottom" id="988-xv-Cgt"/>
-                            <constraint firstItem="z9t-CE-N2h" firstAttribute="centerX" secondItem="Hqg-RL-roi" secondAttribute="centerX" id="AUN-40-jJ0"/>
                             <constraint firstItem="tne-Wc-2Ra" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Etr-dC-2LA"/>
                             <constraint firstItem="OrZ-qi-3Ge" firstAttribute="centerX" secondItem="2fP-tt-v6H" secondAttribute="centerX" id="FfK-Zw-aAS"/>
                             <constraint firstItem="2fP-tt-v6H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hvu-bK-hKA"/>
@@ -73,18 +81,18 @@
                             <constraint firstItem="OrZ-qi-3Ge" firstAttribute="centerY" secondItem="2fP-tt-v6H" secondAttribute="centerY" id="a8B-y9-ooS"/>
                             <constraint firstItem="tne-Wc-2Ra" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="obh-Ct-mMc"/>
                             <constraint firstItem="tne-Wc-2Ra" firstAttribute="bottom" secondItem="Hqg-RL-roi" secondAttribute="top" id="syB-Dn-oQy"/>
-                            <constraint firstItem="z9t-CE-N2h" firstAttribute="centerY" secondItem="Hqg-RL-roi" secondAttribute="centerY" constant="-70" id="yuJ-91-i2Y"/>
                             <constraint firstItem="Hqg-RL-roi" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.35" id="zj5-AE-uFc"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultLabel" destination="z9t-CE-N2h" id="jR8-KO-Jss"/>
+                        <outlet property="fruitPicker" destination="Hqg-RL-roi" id="2wd-4d-XaH"/>
+                        <outlet property="resultLabel" destination="tif-Hl-M4t" id="uZ6-Vb-zln"/>
                         <outlet property="spinButton" destination="OrZ-qi-3Ge" id="j09-Jd-I6p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304.5" y="386.5"/>
+            <point key="canvasLocation" x="303.19999999999999" y="386.35682158920542"/>
         </scene>
     </scenes>
 </document>
